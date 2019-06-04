@@ -217,12 +217,34 @@
             "ruler":     [ 213, 753 ],
             "shielder":  [ 213, 750 ],
             "avenger":   [ 213, 752 ],
+            "alterego":  [ 204, 742 ],
+            "foreigner": [ 204, 742 ],
+            "mooncancer":[ 204, 742 ],
+            "beast":     [ 204, 742 ],
             "all":       [ 213, 752 ]
+          }
+
+          const icon_size = {
+            "saber":      76,
+            "archer":     76,
+            "lancer":     76,
+            "caster":     76,
+            "assassin":   76,
+            "rider":      76,
+            "berserker":  76,
+            "ruler":      76,
+            "shielder":   76,
+            "avenger":    76,
+            "alterego":   96,
+            "foreigner":  96,
+            "mooncancer": 96,
+            "all":        76,
+            "beast":      96
           }
 
           preLoadImg(img_logo.src);
           img_logo.onload = function () {
-            content.drawImage(img_logo,...icon_pos[Hero_class],76,76);
+            content.drawImage(img_logo,...icon_pos[Hero_class],icon_size[Hero_class],icon_size[Hero_class]);
             Hero_class = Hero_class.slice(0, 1).toUpperCase() + Hero_class.slice(1);
             Hero_class = document.getElementById("Hero_subname").value || Hero_class;
             put_text(canvas, content, Hero_class, Hero_name, false);
@@ -267,6 +289,7 @@
       <option value = "3">3 ☆</option>
       <option value = "4">4 ☆</option>
       <option value = "5">5 ☆</option>
+      <option value = "6">5 ☆ (Beast)</option>
     </select><br><br>
     <div style = "text-align: left; display:inline-block; width:50px">ATK：</div><input type = "number" id = "ATK">
     <br>
@@ -304,6 +327,10 @@
           <option value = "ruler">Ruler</option>
           <option value = "avenger">Avenger</option>
           <option value = "shielder">Shielder</option>
+          <option value = "alterego">Alter Ego</option>
+          <option value = "foreigner">Foreigner</option>
+          <option value = "mooncancer">Moon Cancer</option>
+          <option value = "beast">Beast</option>
           <option value = "all">Misc</option>
         </select><br><br>
       </div>
