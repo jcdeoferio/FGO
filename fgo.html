@@ -138,7 +138,7 @@
         content.font = currSize + font_string;
         textWidth = content.measureText(text);
         currSize++;
-      } while (textWidth.width < canvas.width*0.95 && currSize < max_font_size);
+      } while (textWidth.width < canvas.width*0.87 && currSize < max_font_size);
 
       return (currSize-1) + font_string;
     }
@@ -154,7 +154,6 @@
       }
       content.textAlign = "center";
       content.font = get_text_width(canvas, content, Hero_class, 50, 4);
-      //content.font = "50px FGO";
       content.lineWidth = 4;
       content.strokeStyle = "black";
       content.strokeText(Hero_class,250,y[0]);
@@ -162,7 +161,6 @@
       content.fillText(Hero_class,250,y[0]);
         
       content.font = get_text_width(canvas, content, Hero_name, 22, 3);
-      //content.font = "22px FGO";
       content.strokeStyle = "black";
       content.lineWidth = 3;
       content.strokeText(Hero_name,250,y[2]);
