@@ -124,6 +124,26 @@
       };
       reader.readAsDataURL(file);
     }
+
+    function get_text_width(canvas, content, text, max_font_size, stroke_width) {
+      let font_string = "px FGO";
+      let textWidth = 0;
+      let currSize = 0;
+
+      content.textAlign = "center";
+      content.lineWidth = stroke_width;
+      content.strokeStyle = "black";
+
+      do {
+        content.font = currSize + font_string;
+        textWidth = content.measureText(text);
+        currSize++;
+      } while (textWidth.width < canvas.width*0.95 && currSize < max_font_size);
+
+      return (currSize-1) + font_string;
+    }
+
+
     function put_text(canvas, content, Hero_class, Hero_name, CE) {
       let ATK = document.getElementById("ATK").value || 0;
       let HP = document.getElementById("HP").value || 0;
@@ -133,14 +153,16 @@
         HP = "+" + HP;
       }
       content.textAlign = "center";
-      content.font = "50px FGO";
+      content.font = get_text_width(canvas, content, Hero_class, 50, 4);
+      //content.font = "50px FGO";
       content.lineWidth = 4;
       content.strokeStyle = "black";
       content.strokeText(Hero_class,250,y[0]);
       content.fillStyle = "white";
       content.fillText(Hero_class,250,y[0]);
-            
-      content.font = "22px FGO";
+        
+      content.font = get_text_width(canvas, content, Hero_name, 22, 3);
+      //content.font = "22px FGO";
       content.strokeStyle = "black";
       content.lineWidth = 3;
       content.strokeText(Hero_name,250,y[2]);
